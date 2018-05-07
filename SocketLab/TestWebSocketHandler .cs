@@ -16,6 +16,10 @@ namespace SocketLab
             clients.Add(this);
             clients.Broadcast(name + " has connected.");
         }
+        public void SendToAll(string message)
+        {
+            clients.Broadcast(string.Format("{0} said: {1}", "sys", message));
+        }
         public override void OnMessage(string message)
         {
             clients.Broadcast(string.Format("{0} said: {1}", name, message));
